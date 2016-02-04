@@ -202,7 +202,7 @@ To run the example Django project, follow these steps
 4. Run the server and brunch
 
     ```
-    ./manage runserver
+    ./manage.py runserver
     ```
 
 5. Log in to http://localhost:8000 and see them working together. Modify the stylesheet in `static/style/site.css` and
