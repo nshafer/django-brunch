@@ -153,7 +153,7 @@ example, this needs to be True if your BRUNCH_CMD has a space in it or any other
 
 ### BRUNCH_SERVER (optional)
 
-    Default: True
+    Default: False
 
 If this is enabled, then the `brunch watch` command will be started with the `--server` argument. This will instruct
 Brunch to start up its internal server alongside Django's. This shouldn't be needed in a lot of cases, however one very
