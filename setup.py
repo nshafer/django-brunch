@@ -7,14 +7,14 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 long_description = """
 This replaces the `runserver` management command with a version that fires up a `brunch watch` process alongside the
 Django development server to automatically recompile css and javascript. The brunch process is not interrupted when
-the Django server reloads, but it will die when you shut down down the Django server.
+the Django server reloads, but it will die when you shut down the Django server.
 
 `Full Documentation on GitHub <https://github.com/nshafer/django-brunch>`_
 """
 
 setup(
     name='django-brunch',
-    version='1.0.0',
+    version='1.0.1',
     packages=['brunch'],
     include_package_data=True,
     install_requires=['Django>=1.8.0,<1.10.0'],
