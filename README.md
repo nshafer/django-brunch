@@ -106,10 +106,10 @@ Building for production
 Building for production will be much the same, with just one extra step to do before you run `collectstatic`. You need
 to have brunch build a final production version of your assets.
 
-    ```
-    brunch build --production
-    ./manage.py collectstatic
-    ```
+```
+brunch build --production
+./manage.py collectstatic
+```
 
 
 Settings
@@ -122,17 +122,17 @@ This should be an absolute path to the location of your brunch directory; where 
 
 Example:
 
-    ```python
-    BRUNCH_DIR = os.path.join(BASE_DIR, "brunch")
-    ```
+```python
+BRUNCH_DIR = os.path.join(BASE_DIR, "brunch")
+```
 
 ### BRUNCH_CMD (optional)
 
 Default:
 
-    ```python
-    BRUNCH_CMD = ("/usr/bin/env", "brunch")
-    ```
+```python
+BRUNCH_CMD = ("/usr/bin/env", "brunch")
+```
 
 This is the location of your `brunch` CLI command. It is passed to
 [subprocess.Popen](https://docs.python.org/3.4/library/subprocess.html#popen-constructor) so it needs to either be a
@@ -143,17 +143,17 @@ then you will need to set BRUNCH_SHELL to True as well, so that Popen knows to s
 If you install brunch as a local dependency in the local `node_modules` directory, then you'll probably want something
 like this:
 
-    ```python
-    BRUNCH_CMD = os.path.join(BASE_DIR, "brunch", "node_modules", "brunch", "bin", "brunch")
-    ```
+```python
+BRUNCH_CMD = os.path.join(BASE_DIR, "brunch", "node_modules", "brunch", "bin", "brunch")
+```
 
 ### BRUNCH_SHELL (optional)
 
 Default:
 
-    ```python
-    BRUNCH_SHELL = False
-    ```
+```python
+BRUNCH_SHELL = False
+```
 
 If your BRUNCH_CMD requires a shell to parse, then set this to True. This is passed directly to
 [subprocess.Popen](https://docs.python.org/3.4/library/subprocess.html#popen-constructor)'s `shell` argument. For
@@ -163,9 +163,9 @@ example, this needs to be True if your BRUNCH_CMD has a space in it or any other
 
 Default:
 
-    ```python
-    BRUNCH_SERVER = False
-    ```
+```python
+BRUNCH_SERVER = False
+```
 
 If this is enabled, then the `brunch watch` command will be started with the `--server` argument. This will instruct
 Brunch to start up its internal server alongside Django's. This shouldn't be needed in a lot of cases, however one very
