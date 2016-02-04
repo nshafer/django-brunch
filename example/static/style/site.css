@@ -1,0 +1,21 @@
+/* Main site style */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    font-family: sans-serif;
+}
+
+main {
+    padding: 1em;
+}
+
+header {
+    padding: 1em;
+    background: #0C4B33;
+}
+

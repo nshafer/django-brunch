@@ -6,11 +6,22 @@
     <meta charset="UTF-8">
     <title>{% block title %}Example site{% endblock %}</title>
 
+    <!-- app.css is the file that brunch creates in brunch/ by -->
+    <!-- concatenating and processing all css in static/ -->
     <link rel="stylesheet" href="{% static "app.css" %}"/>
-    <script src="{% static "app.js" %}"></script>
 </head>
-<body>
-{% block body %}
+<body id="body">
+<header>
+    <img src="{% static "images/django.svg" %}"/>
+</header>
+<main id="main">
+{% block main %}
 {% endblock %}
+</main>
+
+<!-- app.js is all of our javascript processed by brunch from brunch/app/. -->
+<!-- It will be automatically wrapped by a CommonJS like module system -->
+<script src="{% static "app.js" %}"></script>
+
 </body>
 </html>

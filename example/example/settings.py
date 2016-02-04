@@ -31,10 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    # My apps
     'polls',
 
+    # Vendor apps
     'brunch',
 
+    # Django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -104,10 +107,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATIC_URL = '/static/public/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static", "public"),
+    os.path.join(BASE_DIR, "brunch"),
 ]
-BRUNCH_DIR = os.path.join(BASE_DIR, "static")
+
+
+# Brunch configuration
+# https://github.com/nshafer/django-brunch
+BRUNCH_DIR = BASE_DIR
 BRUNCH_SERVER = True
-# BRUNCH_CMD = os.path.join(BASE_DIR, "static", "node_modules", "brunch", "bin", "brunch")
