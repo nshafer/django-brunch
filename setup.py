@@ -1,26 +1,32 @@
 import os
 from setuptools import setup
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
-    README = readme.read()
-
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
+long_description = """
+This replaces the `runserver` management command with a version that fires up a `brunch watch` process alongside the
+Django development server to automatically recompile css and javascript. The brunch process is not interrupted when
+the Django server reloads, but it will die when you shut down down the Django server.
+
+`Full Documentation on GitHub <https://github.com/nshafer/django-brunch>`_
+"""
+
 setup(
     name='django-brunch',
-    version='0.0.9',
+    version='1.0.0',
     packages=['brunch'],
     include_package_data=True,
-    install_requires=['Django>=1.8.9,<1.10.0'],
+    install_requires=['Django>=1.8.0,<1.10.0'],
     license='BSD License',
     description='Integrate a Brunch workflow with Django.',
-    long_description=README,
+    long_description=long_description,
     url='https://github.com/nshafer/django-brunch',
     author='Nathan Shafer',
     author_email='nate-github@lotech.org',
+    keywords='django brunch',
     classifiers=[
-        'Development Status :: 4 - Beta'
+        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Framework :: Django :: 1.8',
