@@ -1,0 +1,16 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Example site{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static "app.css" %}"/>
+    <script src="{% static "app.js" %}"></script>
+</head>
+<body>
+{% block body %}
+{% endblock %}
+</body>
+</html>
