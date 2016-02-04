@@ -115,5 +115,6 @@ STATICFILES_DIRS = [
 
 # Brunch configuration
 # https://github.com/nshafer/django-brunch
+
 BRUNCH_DIR = BASE_DIR
 BRUNCH_SERVER = True
