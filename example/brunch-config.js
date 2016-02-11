@@ -3,22 +3,6 @@ exports.config = {
     files: {
         javascripts: {
             joinTo: 'app.js'
-
-            // To use a separate vendor.js bundle, specify two files path
-            // https://github.com/brunch/brunch/blob/stable/docs/config.md#files
-            // joinTo: {
-            //  "js/app.js": /^(static\/js)/,
-            //  "js/vendor.js": /^(static\/vendor)|(deps)/
-            // }
-            //
-            // To change the order of concatenation of files, explicitly mention here
-            // https://github.com/brunch/brunch/tree/master/docs#concatenation
-            // order: {
-            //   before: [
-            //     "static/vendor/js/jquery-2.1.1.js",
-            //     "static/vendor/js/bootstrap.min.js"
-            //   ]
-            // }
         },
         stylesheets: {
             joinTo: 'app.css'
