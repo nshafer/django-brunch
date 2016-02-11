@@ -208,3 +208,23 @@ To run the example Django project, follow these steps
 5. Log in to http://localhost:8000 and see them working together. Modify the stylesheet in `static/style/site.css` and
 save it to live reloading in action. If you need to get in to the admin, the username and password are 'admin'.
 
+
+Inspiration
+-----------
+
+Inspiration for how to integrate Brunch with Django comes from how the [Phoenix Framework](http://www.phoenixframework.org/)
+does it by default in a new Phoenix project. I used their example as a model for the highly customized `brunch-config.js`
+that departs from brunch conventions a bit.
+
+
+TODO
+----
+
+- Add hook in `collectstatic` to automatically run `brunch build --production` before collecting files
+- Add command-line `--disable-brunch` to the `runserver` command in cases where you might not want to fire it up. Right
+now you have to disable `brunch` in `INSTALLED_APPS` in your setup.py to turn it off.
+- Add a `initbrunch` management command that clones down django-brunch-skeleton and copies files over safely into an
+existing Django project. Perhaps pre-initialize the `brunch-config.js` based on existing Django static configuration.
+- Add a bit of javascript to `brunch-config.js` to allow globs in the `paths.watched` array, so you can just specify
+something like `**/templates` and `**/static` to get all app assets automatically without having to automatically add
+them.
