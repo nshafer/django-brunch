@@ -14,7 +14,7 @@ the Django server reloads, but it will die when you shut down the Django server.
 
 setup(
     name='django-brunch',
-    version='1.0.1',
+    version='1.0.2',
     packages=['brunch'],
     include_package_data=True,
     install_requires=['Django>=1.8.0,<2.0.0'],
