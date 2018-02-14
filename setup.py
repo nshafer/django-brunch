@@ -17,7 +17,7 @@ setup(
     version='1.0.1',
     packages=['brunch'],
     include_package_data=True,
-    install_requires=['Django>=1.8.0,<1.10.0'],
+    install_requires=['Django>=1.8.0,<2.0.0'],
     license='BSD License',
     description='Integrate a Brunch workflow with Django.',
     long_description=long_description,
