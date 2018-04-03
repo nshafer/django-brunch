@@ -43,7 +43,7 @@ class Command(StaticfilesRunserverCommand):
         self.stdout.write("Using {}{}".format("shell: " if shell else "", cmd if shell else " ".join(cmd)))
 
         brunch_process = subprocess.Popen(cmd, cwd=settings.BRUNCH_DIR, shell=settings.BRUNCH_SHELL,
-                                          stdin=subprocess.PIPE, stdout=self.stdout, stderr=self.stderr,)
+                                          stdin=subprocess.PIPE, stdout=self.stdout, stderr=self.stderr)
 
         self.stdout.write('Brunch pid: {}'.format(brunch_process.pid))
 
