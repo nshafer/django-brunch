@@ -1,4 +1,5 @@
 import os
+import sys
 from setuptools import setup
 
 # allow setup.py to be run from any path
@@ -12,9 +13,19 @@ the Django server reloads, but it will die when you shut down the Django server.
 `Full Documentation on GitHub <https://github.com/nshafer/django-brunch>`_
 """
 
+VERSION = '1.0.2'
+
+if sys.argv[-1] == 'publish':
+    os.system('python setup.py bdist_wheel sdist')
+    os.system('twine upload dist/*')
+    print("You probably want to also tag the version now:")
+    print("  git tag -a %s -m 'version %s'" % (VERSION, VERSION))
+    print("  git push --tags")
+    sys.exit()
+
 setup(
     name='django-brunch',
-    version='1.0.2',
+    version=VERSION,
     packages=['brunch'],
     include_package_data=True,
     install_requires=['Django>=1.8.0,<2.0.0'],
