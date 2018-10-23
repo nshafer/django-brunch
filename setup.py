@@ -24,7 +24,7 @@ if sys.argv[-1] == 'publish':
     print("  git push --tags")
     shutil.rmtree('dist')
     shutil.rmtree('build')
-    shutil.rmtree('django_hashid_field.egg-info')
+    shutil.rmtree('django_brunch.egg-info')
     sys.exit()
 
 setup(
