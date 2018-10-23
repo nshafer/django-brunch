@@ -15,13 +15,11 @@ exports.config = {
     // Django paths
     paths: {
         watched: [
-            'static',
+            'app', 'test', 'vendor',
             'templates',
             // Add any more template directories here
             'polls/templates'
-        ],
-
-        public: 'brunch'
+        ]
     },
 
     // Automatically require modules

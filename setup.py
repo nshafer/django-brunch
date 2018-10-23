@@ -1,5 +1,6 @@
 import os
 import sys
+import shutil
 from setuptools import setup
 
 # allow setup.py to be run from any path
@@ -13,7 +14,7 @@ the Django server reloads, but it will die when you shut down the Django server.
 `Full Documentation on GitHub <https://github.com/nshafer/django-brunch>`_
 """
 
-VERSION = '1.0.2'
+VERSION = '1.0.3'
 
 if sys.argv[-1] == 'publish':
     os.system('python setup.py bdist_wheel sdist')
@@ -21,6 +22,9 @@ if sys.argv[-1] == 'publish':
     print("You probably want to also tag the version now:")
     print("  git tag -a %s -m 'version %s'" % (VERSION, VERSION))
     print("  git push --tags")
+    shutil.rmtree('dist')
+    shutil.rmtree('build')
+    shutil.rmtree('django_hashid_field.egg-info')
     sys.exit()
 
 setup(
@@ -28,7 +32,7 @@ setup(
     version=VERSION,
     packages=['brunch'],
     include_package_data=True,
-    install_requires=['Django>=1.8.0,<2.0.0'],
+    install_requires=['Django>=1.11.0,<2.2.0'],
     license='BSD License',
     description='Integrate a Brunch workflow with Django.',
     long_description=long_description,
@@ -40,10 +44,9 @@ setup(
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Framework :: Django',
-        'Framework :: Django :: 1.8',
-        'Framework :: Django :: 1.9',
-        'Framework :: Django :: 1.10',
         'Framework :: Django :: 1.11',
+        'Framework :: Django :: 2.0',
+        'Framework :: Django :: 2.1',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
@@ -51,7 +54,6 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',

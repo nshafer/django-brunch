@@ -19,31 +19,41 @@ app assets such as CSS and Javascript upon saving. Set up brunch to also watch y
 live-reloading on modification of anything.
 
 
+Requirements
+------------
+
+- Brunch >= 2.0
+- Django == 1.11, 2.0, 2.1
+
 Integrate brunch in your Django project
 ---------------------------------------
+
+> **Note:** These instructions assume you have installed Brunch globally as directed by brunch.io. If you prefer to only have brunch
+> installed locally in `node_modules/` then modify all of these instructions to run brunch with `npx brunch` instead of
+> `brunch`.
 
 1. Initialize brunch in your Django project directory. This skeleton will create a brunch-config.js and package.json
 file in the root of your project directory.
 
-    ```
+    ```bash
     cd myproject
     brunch new -s https://github.com/nshafer/django-brunch-skeleton
     ```
 
-2. Put your CSS and JS files in `static/`, images and other files in `static/assets/`
+2. Put your CSS and JS files in `app/`, images and other files in `app/assets/`
 
-3. Test brunch. This will output to `brunch/`
+3. Test brunch. This will output to `public/`
 
-    ```
+    ```bash
     brunch build
     ```
 
-4. Add brunch's output directory `brunch/` to the STATICFILES_DIRS list so that Django will find the files that Brunch
-will create. Remove any existing reference to `static/` since we now only want to include assets handled by brunch.
+4. Add brunch's output directory `public/` to the STATICFILES_DIRS list so that Django will find the files that Brunch
+will create. Remove any existing reference to `app/` since we now only want to include assets output by brunch.
 
     ```python
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, "brunch"),
+        os.path.join(BASE_DIR, "public"),
     ]
     ```
 
@@ -60,11 +70,11 @@ Install the Django Module
 
 1. Install 'django-brunch' from PyPI
 
-    ```
+    ```bash
     pip install django-brunch
     ```
     
-2. Add `brunch` to INSTALLED_APPS, but BEFORE `django.contrib.staticfiles`:
+2. Add `brunch` to INSTALLED_APPS, but BEFORE `django.contrib.staticfiles` so that it overrides the `runserver` command:
 
     ```python
     INSTALLED_APPS = [
@@ -85,7 +95,7 @@ absolute path to the directory where your `brunch-config.js` or `brunch-config.c
 4. Run `runserver` like you normally would. A brunch process will be started alongside the Django development web server
 in the directory you provided with BRUNCH_DIR. One terminal, both processes!
 
-    ```
+    ```bash
     ./manage.py runserver
     ```
 
@@ -95,7 +105,7 @@ Live Reloading
 
 By default, the 'brunch-config.js' that is installed from
 [django-brunch-skeleton](https://github.com/nshafer/django-brunch-skeleton)
-will enable auto-reloading upon modification of files in `static/` and `template/` as long as you enable
+will enable auto-reloading upon modification of files in `app/` and `template/` as long as you enable
 `BRUNCH_SERVER` in your Django settings.
 Add your individual app static and template directories to `paths.watched` to get the same for all of your apps.
 
@@ -118,7 +128,7 @@ Settings
 ### BRUNCH_DIR (required)
 
 This should be an absolute path to the location of your brunch directory; where your `brunch-config.js` or
-`brunch-config.coffee` file lives.
+`brunch-config.coffee` file lives. This is used as the working directory of the brunch command.
 
 Example:
 
@@ -144,7 +154,13 @@ If you install brunch as a local dependency in the local `node_modules` director
 like this:
 
 ```python
-BRUNCH_CMD = os.path.join(BASE_DIR, "brunch", "node_modules", "brunch", "bin", "brunch")
+BRUNCH_CMD = ("/usr/bin/npx", "brunch")
+```
+
+Or if you have an older version of Node.js / npm:
+
+```python
+BRUNCH_CMD = os.path.join(BASE_DIR, "brunch", "node_modules", ".bin", "brunch")
 ```
 
 ### BRUNCH_SHELL (optional)
@@ -205,7 +221,7 @@ To run the example Django project, follow these steps
     ./manage.py runserver
     ```
 
-5. Log in to http://localhost:8000 and see them working together. Modify the stylesheet in `static/style/site.css` and
+5. Log in to http://localhost:8000 and see them working together. Modify the stylesheet in `app/style/site.css` and
 save it to live reloading in action. If you need to get in to the admin, the username and password are 'admin'.
 
 
