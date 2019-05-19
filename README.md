@@ -23,7 +23,7 @@ Requirements
 ------------
 
 - Brunch >= 2.0
-- Django == 1.11, 2.0, 2.1
+- Django == 1.11, 2.0, 2.1, 2.2
 
 Integrate brunch in your Django project
 ---------------------------------------

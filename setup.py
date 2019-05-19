@@ -14,7 +14,7 @@ the Django server reloads, but it will die when you shut down the Django server.
 `Full Documentation on GitHub <https://github.com/nshafer/django-brunch>`_
 """
 
-VERSION = '1.0.3'
+VERSION = '1.0.4'
 
 if sys.argv[-1] == 'publish':
     os.system('python setup.py bdist_wheel sdist')
@@ -32,7 +32,7 @@ setup(
     version=VERSION,
     packages=['brunch'],
     include_package_data=True,
-    install_requires=['Django>=1.11.0,<2.2.0'],
+    install_requires=['Django>=1.11.0'],
     license='BSD License',
     description='Integrate a Brunch workflow with Django.',
     long_description=long_description,
@@ -47,6 +47,7 @@ setup(
         'Framework :: Django :: 1.11',
         'Framework :: Django :: 2.0',
         'Framework :: Django :: 2.1',
+        'Framework :: Django :: 2.2',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
