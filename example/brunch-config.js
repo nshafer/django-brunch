@@ -25,7 +25,7 @@ exports.config = {
     // Automatically require modules
     modules: {
         autoRequire: {
-            "app.js": ["static/js/main"]
+            "app.js": ["js/main"]
         }
     },
 
